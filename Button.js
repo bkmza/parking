@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     paddingHorizontal: 30,
     paddingVertical: 15,
-    marginHorizontal: 10,
+    marginHorizontal: 10
   },
   buttonText: {
     fontWeight: '200',
