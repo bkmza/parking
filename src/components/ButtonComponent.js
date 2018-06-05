@@ -11,7 +11,7 @@ import {
 
 import TouchableBounce from 'react-native/Libraries/Components/Touchable/TouchableBounce';
 
-export default class Button extends React.Component {
+export default class ButtonComponent extends React.Component {
   constructor(props) {
     super(props);
 
@@ -75,3 +75,5 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
 });
+
+module.exports = ButtonComponent;
