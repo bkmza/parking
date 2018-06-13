@@ -1,53 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Navigator } from 'react-native';
-
-var ButtonComponent = require('./ButtonComponent')
+import React, {Component} from 'react';
+import { Modal, Text, TouchableHighlight, View, StyleSheet } from 'react-native';
 var PlaceComponent = require('./PlaceComponent')
+class ParkingComponent extends Component {
+    state = {
+    };
 
-class ParkingComponent extends React.Component {
+    _places = [
+      {
+        id: 1,
+        orientation: 0
+      },
+      {
+        id: 2,
+        orientation: 0
+      },
+      {
+        id: 3,
+        orientation: 0
+      },
+      {
+        id: 4,
+        orientation: 0
+      }
+    ];
 
-static navigationOptions = {
-    title: "Smart Parking"
-};
+    renderPlaces(places) {
+      return this._places.map((place) => {
+        return (
+          <PlaceComponent message={place.id} />
+        );
+      });
+    };
 
-  render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        <View style={styles.parkingContainer}>
-          <PlaceComponent message="parking" />
-        </View>
-        <View style={styles.buttonContainer}>
-          <ButtonComponent
-              onPress={() => {
-                  navigate('Details', { name : 'Details' })
-              }}>
-              I want to leave
-          </ButtonComponent>
-        </View>
-      </View>
+    render() {
+        return (
+            <View style={styles.container}>
+              {this.renderPlaces(this._places)}
+            </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  parkingContainer: {
-    paddingTop: 20,
-    flex: 0.85
-  },
-  buttonContainer: {
-    paddingTop: 20,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    flex: 0.15 
-  }
+   container: {
+       flex: 1,
+       flexDirection: 'column'
+   }
 });
 
 module.exports = ParkingComponent;

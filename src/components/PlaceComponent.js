@@ -16,9 +16,10 @@ class PlaceComponent extends Component {
 
 const styles = StyleSheet.create({
    container: {
-       flex: 1,
-       justifyContent: 'center',
-       alignItems: 'center'
+    flex: 0.25,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: 'blue'
    } 
 });
 
