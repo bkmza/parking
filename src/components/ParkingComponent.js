@@ -7,11 +7,37 @@ class ParkingComponent extends Component {
 
     _places = mockdata["parking"];
 
-    renderPlaces() {
+    renderFirstColumn() {
       console.log(this._places);
-      return this._places.map((place) => {
+      return this._places.slice(0,6).map((place) => {
         return (
-          // console.log(place);
+          <PlaceComponent message={place.placeId} />
+        );
+      });
+    };
+
+    renderSecondColumn() {
+      console.log(this._places);
+      return this._places.slice(6,8).map((place) => {
+        return (
+          <PlaceComponent message={place.placeId} />
+        );
+      });
+    };
+
+    renderThirdColumn() {
+      console.log(this._places);
+      return this._places.slice(8,10).map((place) => {
+        return (
+          <PlaceComponent message={place.placeId} />
+        );
+      });
+    };
+
+    renderFourthColumn() {
+      console.log(this._places);
+      return this._places.slice(10,16).map((place) => {
+        return (
           <PlaceComponent message={place.placeId} />
         );
       });
@@ -20,8 +46,19 @@ class ParkingComponent extends Component {
     render() {
         return (
             <View style={styles.container}>
-              {this.renderPlaces()}
-            </View>
+              <View style={styles.verticalLine}>
+                {this.renderFirstColumn()}
+              </View>
+              <View style={styles.verticalLine}>
+                {this.renderSecondColumn()}
+              </View>
+              <View style={styles.verticalLine}>
+                {this.renderThirdColumn()}
+              </View>
+              <View style={styles.verticalLine}>
+                {this.renderFourthColumn()}
+              </View>
+          </View>
     );
   }
 }
@@ -29,7 +66,11 @@ class ParkingComponent extends Component {
 const styles = StyleSheet.create({
    container: {
        flex: 1,
-       flexDirection: 'column'
+       flexDirection: 'row'
+   },
+    verticalLine: {
+      flex: 1,
+      flexDirection: 'column'
    }
 });
 
