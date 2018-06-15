@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
-import { Modal, Text, TouchableHighlight, View, StyleSheet } from 'react-native';
+import { Modal, Text, TouchableHighlight, View, StyleSheet, Alert } from 'react-native';
 
 class PlaceComponent extends Component {
     state = {
     };
 
+    _onPressHandler() {
+        Alert.alert("Tapped!");
+    }
+
     render() {
         return (
-            <View style={styles.container}>
+            <TouchableHighlight onPress={this._onPressHandler} style={styles.container}>
                 <Text>{this.props.message}</Text>
-            </View>
+            </TouchableHighlight>
     );
   }
 }
@@ -20,7 +24,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     backgroundColor: 'blue'
-   } 
+   }
 });
 
 module.exports = PlaceComponent;

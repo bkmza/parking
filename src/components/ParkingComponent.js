@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Modal, Text, TouchableHighlight, View, StyleSheet } from 'react-native';
 var PlaceComponent = require('./PlaceComponent')
+var PlaceVerticalComponent = require('./PlaceVerticalComponent')
+
 class ParkingComponent extends Component {
     state = {
     };
@@ -18,25 +20,25 @@ class ParkingComponent extends Component {
 
     renderSecondColumn() {
       console.log(this._places);
-      return this._places.slice(6,8).map((place) => {
+      return this._places.slice(6,9).map((place) => {
         return (
-          <PlaceComponent message={place.placeId} />
+          <PlaceVerticalComponent message={place.placeId} />
         );
       });
     };
 
     renderThirdColumn() {
       console.log(this._places);
-      return this._places.slice(8,10).map((place) => {
+      return this._places.slice(9,12).map((place) => {
         return (
-          <PlaceComponent message={place.placeId} />
+          <PlaceVerticalComponent message={place.placeId} />
         );
       });
     };
 
     renderFourthColumn() {
       console.log(this._places);
-      return this._places.slice(10,16).map((place) => {
+      return this._places.slice(12,18).map((place) => {
         return (
           <PlaceComponent message={place.placeId} />
         );
